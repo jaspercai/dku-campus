@@ -85,6 +85,7 @@
     margin-top: 10px;
     font-size: 14px;
     line-height: 1.4;
+
   }
 
   .close-btn {
@@ -128,14 +129,16 @@ const map = L.map('map', {
   minZoom: -2.5,
   maxZoom: 2,
   maxBounds: bounds,
-  maxBoundsViscosity: 1.0
+  maxBoundsViscosity: 1.0,
 });
+map.attributionControl.setPrefix('DKU Interactive Map');
 
 L.imageOverlay('map.jpg', bounds).addTo(map);
 map.fitBounds(bounds);
 
   // Sample markers data
   const markersData = [
+    // DKU
     {
       title: "Innovation Building",
       coords: [1364, 4256],
@@ -143,10 +146,174 @@ map.fitBounds(bounds);
       desc: "Opened in 2019, the Innovation Building sits on the south bank of the campus pond. It features office space in its west wing and laboratories for science and other disciplines on its east side. The neighboring pond is not only an ecosystem in itself but also acts as a sponge system facilitating the reuse of rainwater. Areas populated with cherry trees provide a versatile space for contemplation, relaxation and socializing, evoking the iconic cherry blossoms at Wuhan University."
     },
     {
+      title: "title",
+      coords: [100, 100],
+      images: ["IB.jpg"],
+      desc: "Description"
+    },
+    {
+      title: "Landmark Tower",
+      coords: [1720, 5716],
+      images: ["tower.jpg"],
+      desc: "Casting a shadow resembling the pages of a book, the 28.24-meter-high tower has four curved axisymmetric sides rising from its base, expressing a surge of upward growth and drawing inspiration from Duke University architecture. Its arches incorporate design elements from archways found in the classical gardens in Jiangnan and the grooves running up the tower are inspired by traditional Chinese folding fans. Stairs leading to the accessible base are a nod to the architectural heritage of academic buildings at Wuhan University."
+    },
+    {
+      title: "Academic Building",
+      coords: [2636, 4380],
+      images: ["ab1.jpg", "ab2.jpg", "ab3.jpg", "ab4.jpg"],
+      desc: "Located at the intersection of the Phase 1 and Phase 2 developments, the Academic Building was one of the original flagship buildings on campus when it opened in 2014. With a large curved glass wall, open-plan indoor space and high ceilings, every detail of the building was thoughtfully designed for aesthetics, comfort, technology and environmental protection, providing a model for what a green campus should be. Prior to the Phase 2 launch, the Academic Building served a variety of important functions, capturing many memories from the first decade of DKU's history."
+    },
+    {
+      title: "Library",
+      coords: [2256, 5056],
+      images: ["lib1.jpg", "lib2.jpg", "lib3.jpg", "lib4.jpg", "lib5.jpg", "lib6.jpg", "lib7.jpg", "lib8.jpg", "lib9.jpg"],
+      desc: "From the outside, the library building resembles two books resting on top of each other. Inside, a high-ceilinged atrium bathed in natural light serves as a grand entrance, gathering point and art gallery. Benches lined beside open stairways offer sociable seating for faculty, students and visitors to catch up and exchange ideas. The first and second floors feature collaborative spaces, providing a variety of learning and communication facilities including classrooms, a children's zone, innovation center and an audio-visual room. The third and fourth floors host the library collection and provide reading areas and quiet environments for group study and multimedia learning, as well as a Chinese tea room and rooftop garden. The exterior glass wall draws on the research findings of DKU faculty and students by applying colored glaze patterns and shading lines to prevent bird-window collisions."
+    },
+    {
+      title: "WHU-Duke Research Institute",
+      coords: [1848, 4764],
+      images: ["whu.jpg"],
+      desc: "Representing the very highest specifications as a pedagogical laboratory building, the WHU-Duke Research Institute provides versatile and state-of-the-art laboratory space and collaboration areas to facilitate productive interactions between students, faculty and visiting researchers. Inside, the decor takes inspiration from the signature styles of both Jiangnan and Wuhan University."
+    },
+    {
+      title: "Water Pavilion",
+      coords: [2624, 3552],
+      images: ["water1.jpg", "water2.jpg", "water3.jpg"],
+      desc: "Located at the heart of the campus pond area, the Water Pavilion offers a multi-purpose space. The façade structure is inspired by the arches of Duke's historical architecture, while the waves and eaves of the roof incorporate classical Chinese architectural designs. The pond landscaping not only provides a beautiful view and a unique outdoor space, but also a sustainable system for rainwater collection, regulation, treatment and reuse on campus. The Water Pavilion and its beautiful reflection in the water during lotus-blooming season exemplify the perfect combination of aesthetics and functionality."
+    },
+    {
+      title: "Conference Center",
+      coords: [2704, 3136],
+      images: ["cc.jpg"],
+      desc: "Nestled between the West Gate and the campus pond, the Conference Center offers serene and open views for guests of its integrated four-star hotel facilities. Used for faculty offices and student residences during Phase 2 campus construction, its primary function is now for hospitality, providing accommodation and support services for the numerous international and domestic conferences, forums and receptions held on campus."
+    },
+    {
+      title: "Administration Building",
+      coords: [2124, 5968],
+      images: ["admin.jpg"],
+      desc: "Situated on the east side of the Central Quad, the Administration Building is the beating heart of university operations with staff based across four floors of offices, meeting rooms and collaboration spaces. Its courtyard opens out onto the grassy expanse of the Central Quad. Sitting in the center of the courtyard, a water feature decorated with snow wave stones and luohan pines forms a dignified and serene welcome setting."
+    },
+    {
+      title: "Undergraduate Student Residence",
+      coords: [3244, 5728],
+      images: ["residence1.jpg", "residence2.jpg", "residence3.jpg", "residence4.jpg", "residence5.jpg", "residence6.jpg", "residence7.jpg", "residence8.jpg", "residence9.jpg"],
+      desc: "Landscaped courtyards surround the undergraduate student residence halls, which each have a distinctive color scheme decorating their interior. Dorms for graduate students provide shared and separate accommodation and social spaces. Sleeping areas are located on or above the second floor, offering elevated views and more privacy, while the first floor is primarily used as a communal space for socializing and study."
+    },
+    {
+      title: "Soccer Field",
+      coords: [3088, 6724],
+      images: ["soccer1.jpg", "soccer2.jpg", "soccer3.jpg"],
+      desc: "The DKU Soccer Field is a full-size, lighted stadium field (with 1,865 seats) at the heart of our campus sports facilities. It hosts intercollegiate matches, club games, and recreational play for students, staff, and guests."
+    },
+    {
+      title: "Sports Complex",
+      coords: [2730, 6376],
+      images: ["sports1.jpg", "sports2.jpg", "sports3.jpg", "sports4.jpg", "sports5.jpg", "sports6.jpg", "sports7.jpg", "sports8.jpg", "sports9.jpg", "sports10.jpg", "sports11.jpg", "sports12.jpg", "sports13.jpg", "sports14.jpg", "sports15.jpg", "sports16.jpg", "sports17.jpg", "sports18.png", "sports19.png"],
+      desc: "DKU’s four-story Sports Complex (13,000 m²) is a LEED-compliant cutting-edge athletics and recreation center with energy-efficient lighting and HVAC (Architecture-029.jpg). It supports DKU’s diverse physical education curriculum, intramural and varsity sports, and wellness programs, aligning with DKU Athletics’ mission to promote health and community.  \\n\\nThe complex includes:  \\n·	A main indoor multipurpose gymnasium (1,500+ m²) with a primary basketball court (180 spectator seats) and additional practice courts. \\n·	Six badminton courts, 10 table tennis tables, two squash/racquetball courts, and a martial-arts dojo.  \\n·	Two dance/yoga studios.  \\n·	A 4-lane, 260-meter indoor running track overlooking the gym.  \\n·	An 8-lane, 25-meter indoor lap pool with an adjacent therapy pool and sauna. \\n·	A climbing wall (4 lanes), spin and rowing studios (30 machines), functional/TRX/CrossFit area, and cardio/weight training spaces. \\n·	Two outdoor tennis courts (north/south) and seven pickleball courts on adjacent grounds. \\n\\nThe Sports Complex also includes men’s and women’s locker rooms with showers, an equipment rental shop, and multiple seating areas. Overall spectator capacity across facilities is approximately 2,000, allowing the complex to host large-scale events, competitions, and performances. \\n\\nThe complex offers a comprehensive range of services and programs. DKU Athletics operates the facility, organizing fitness classes such as dance, Zumba, yoga, martial arts, and swimming lessons, as well as supporting the physical education curriculum. The complex also hosts intramural leagues and varsity team practices, while maintaining open fitness hours for general use. Some facilities require advance booking or enrollment through an integrated online reservation system, which allows students to reserve courts, studios, and equipment. \\n\\nPersonal training services are available through an in-house partnership with L-Joy Fitness and are open to all members of the DKU community. Each student is eligible for one complimentary consultation session per month. Trainers are internationally certified and provide bilingual instruction in both English and Chinese. Each session includes an InBody body composition analysis and consultation, followed by approximately 45 minutes of guided training and 15 minutes of recovery, including stretching, massage, and foam rolling. Additional services such as sports massage and wellness consultations are also available. \\n\\nA front desk provides information and support, including equipment checkout services, while Campus Recreation offers day passes for visitors. Through its combination of state-of-the-art facilities, professional services, and accessible programming, the Sports Complex serves as a central space for physical activity, stress relief, and community engagement at DKU."
+    },
+    {
+      title: "Community Center West",
+      coords: [2668, 5248],
+      images: ["cct1.jpg", "cct2.jpg", "cct3.jpg", "cct4.jpg", "cct5.jpg", "cct6.jpg", "cct7.jpg", "cct8.jpg", "cct9.jpg", "cct10.jpg", "cct11.jpg"],
+      desc: "The Community Center West Wing (CCT West) is the main dining hub at Duke Kunshan University, designed to support the daily needs of the campus community as a central and highly accessible food space. As a three-story building, it offers a wide variety of dining options that bring together Chinese and international cuisines in one location, making it one of the most frequently visited spaces on campus. \\n\\nOn the first floor, students will find a diverse mix of convenient services and food options, including the Campus Mail Center, a FamilyMart convenience store, and a Grab-and-Go section offering items such as sandwiches, salads, fruit cups, and cakes. This floor also features mini hot pot and a café, providing both quick options and casual dining in a social setting. \\n\\nThe second floor offers a broader international selection, including a halal food section, a salad bar, and two food windows serving international cuisine. This level is designed to accommodate diverse dietary preferences while also providing healthier and more customizable meal options for students throughout the day. \\n\\nThe third floor focuses on à la carte Chinese dining, offering a wider range of traditional dishes in a more restaurant-style setting. Together, the three floors allow students to choose between fast meals, casual dining, and more structured dining experiences depending on their schedules and preferences. \\n\\nCCT West has the capacity to accommodate at least 1,000 people at the same time, making it a central gathering point during peak meal periods. Students can conveniently pay using their student card, which also provides a 10% discount on all purchases except at FamilyMart. \\n\\nImportantly, DKU does not require students to purchase a meal plan. Students have full flexibility in how they manage their meals—whether dining at CCT West, cooking in residence hall kitchen facilities, or ordering food delivery—allowing for a high degree of independence in daily choices."
+    },
+    // Suzhou
+    {
+      title: "Suzhou City Moat (苏州护城河)",
+      coords: [3000, 1200],
+      images: ["moat1.jpg", "moat2.jpg"],
+      desc: "The Suzhou City Moat is a historic waterway built in 514 BCE under King Helü of Wu, guided by his minister Wu Zixu, to protect the ancient city. Connecting Taihu Lake and the Grand Canal, it passes by the famous Hanshan Temple and forms a scenic loop around the old city. Stretching over 15 kilometers with an average width of 73 meters, the moat offers peaceful boat rides where visitors can admire classical arched bridges, riverside temples, and the city’s well-preserved walls, experiencing the timeless charm of Suzhou’s “Venice of the East.”"
+    },
+    {
+      title: "Shantang Street (山塘街)",
+      coords: [3860, 772],
+      images: ["shantang.jpg"],
+      desc: "Shantang Street is a lively historic district that dates back over 1,000 years. Running alongside a canal, the street is filled with traditional shops, teahouses, and local snacks. It captures the charm of old Suzhou, especially at night when lanterns reflect beautifully on the water."
+    },
+    {
       title: "Zhouzhuang (周庄)",
       coords: [4620, 1700],
       images: ["zhouzhuang1.png", "zhouzhuang2.png"],
       desc: "Zhouzhuang is one of China’s most famous water towns, known for its well-preserved Ming and Qing dynasty architecture. Stone bridges arch gracefully over narrow canals, and traditional houses line the waterways, offering visitors a glimpse into life in ancient Jiangnan. A boat ride here feels like stepping into a living painting."
+    },
+    {
+      title: "Suzhou (苏州)",
+      coords: [2296, 1312],
+      images: ["suzhou2.png", "suzhou3.png", "suzhou4.png"],
+      desc: "Often called the “Venice of the East,” Suzhou is one of China’s oldest cities, celebrated for its classical gardens, elegant canals, and refined silk culture. With a history of over 2,500 years, it offers a unique blend of poetic heritage and modern innovation, making it a perfect gateway to understanding traditional Chinese aesthetics."
+    },
+    {
+      title: "Jinji Lake Music Water Fountain Show (金鸡湖音乐喷泉)",
+      coords: [2664, 2096],
+      images: ["jinji1.jpg", "jinji2.png"],
+      desc: "Set against the skyline of modern Suzhou, the Jinji Lake Music Fountain Show is a spectacular display of water, light, and music. It is one of the largest fountain shows in Asia, offering an impressive nighttime experience that blends technology with artistic performance."
+    },
+    {
+      title: "Suzhou Center (苏州中心)",
+      coords: [3264, 1944],
+      images: ["suzhou-center.jpg"],
+      desc: "Suzhou Center represents the city’s modern side. Located by Jinji Lake, this large shopping and lifestyle complex features international brands, dining, and entertainment. Its futuristic architecture contrasts with Suzhou’s ancient heritage, highlighting the city’s dynamic transformation."
+    },
+    // Shanghai
+    {
+      title: "Shanghai (上海)",
+      coords: [3580, 7912],
+      images: ["shanghai.png"],
+      desc: "Shanghai is China’s largest and most cosmopolitan city, where East meets West in a dynamic urban landscape. Once a historic trading port, it has grown into a global financial and cultural hub, known for its iconic skyline, diverse architecture, and vibrant lifestyle. From traditional neighborhoods and cultural institutions to cutting-edge design and innovation, Shanghai offers a compelling window into both China’s past and its future."
+    },
+    {
+      title: "The Bund (外滩)",
+      coords: [1884, 8380],
+      images: ["bund1.jpg", "bund2.jpg"],
+      desc: "The Bund is Shanghai’s most iconic waterfront, where historic European-style buildings line the Huangpu River. Across the river, the futuristic skyline of Pudong creates a striking contrast. It’s the perfect place to experience Shanghai’s past and present in a single view."
+    },
+    {
+      title: "Oriental Pearl Tower (东方明珠电视塔)",
+      coords: [2140, 8648],
+      images: ["tv-tower.jpg"],
+      desc: "One of Shanghai’s most recognizable landmarks, the Oriental Pearl Tower stands out with its distinctive spheres. Visitors can enjoy panoramic views of the city from its observation decks and explore exhibitions that showcase Shanghai’s history."
+    },
+    {
+      title: "Nanjing Road 'Nanjing Lu' (南京路)",
+      coords: [2348, 8380],
+      images: ["nanjing-lu1.jpg", "nanjing-lu2.jpg"],
+      desc: "Nanjing Road is one of the world’s busiest shopping streets, stretching from the Bund to People’s Square. It combines historic department stores with modern retail, offering a vibrant shopping experience day and night."
+    },
+    {
+      title: "Shanghai Museum (上海博物馆)",
+      coords: [2680, 7988],
+      images: ["sh-museum1.jpg", "sh-museum2.jpg"],
+      desc: "Located in People’s Square, the Shanghai Museum is renowned for its extensive collection of ancient Chinese art, including bronzes, ceramics, calligraphy, and jade. Its architecture, inspired by a traditional Chinese ding vessel, symbolizes harmony and balance."
+    },
+    {
+      title: "Shanghai Disney Resort (上海迪士尼度假区)",
+      coords: [882, 9153],
+      images: ["disney1.jpg", "disney2.jpg"],
+      desc: "Shanghai Disney Resort blends classic Disney storytelling with Chinese cultural elements. Featuring the largest Disney castle in the world, it offers immersive attractions, entertainment, and dining experiences for visitors of all ages."
+    },
+    {
+      title: "Old Town 'Nanshi' (上海老城厢「南市」)",
+      coords: [1172, 7772],
+      images: ["nanshi1.jpg", "nanshi2.jpg", "nanshi3.jpg"],
+      desc: "The Old Town (Nanshi) is the historical heart of Shanghai, where the city first took shape centuries before its rise as a global metropolis. Once enclosed by ancient city walls, this district preserves the traditional urban fabric of old Shanghai, with winding alleyways (known as longtang), local markets, and remnants of classical Chinese architecture. \\n\\nAt its center lies the famous Yuyuan Garden, a beautifully preserved Ming dynasty garden that exemplifies the elegance of Jiangnan design, complete with pavilions, rockeries, and koi-filled ponds. Surrounding it, the bustling bazaar area offers traditional snacks, handicrafts, and a lively atmosphere that blends tourism with everyday local life. \\n\\nBeyond its well-known attractions, the Old Town also reveals a more intimate side of Shanghai—residential lanes where generations have lived, small temples tucked between buildings, and street scenes that reflect enduring customs and community life. Visiting this area provides a meaningful contrast to the city’s modern skyline, offering insight into the cultural roots and lived experiences that continue to shape Shanghai today."
+    },
+    {
+      title: "Shanghai Propaganda Poster Art Centre (上海宣传画艺术中心)",
+      coords: [2960, 7436],
+      images: ["propaganda1.jpg", "propaganda2.webp"],
+      desc: "This unique museum houses a rare collection of propaganda posters from the Mao era. It offers fascinating insights into China’s political and cultural history through visual art, making it a hidden gem for culturally curious visitors."
+    },
+    {
+      title: "Shanghai Ocean Aquarium (上海海洋水族馆)",
+      coords: [2240, 8924],
+      images: ["aquarium1.jpg", "aquarium2.jpg", "aquarium3.webp"],
+      desc: "Located near the Oriental Pearl Tower, the Shanghai Ocean Aquarium features one of the world’s longest underwater tunnels. It showcases marine life from China and around the globe, making it both educational and visually engaging."
+    },
+    {
+      title: "Shanghai Urban Planning Exhibition Hall (上海城市规划展示馆)",
+      coords: [2572, 8588],
+      images: ["sh-urban1.jpg", "sh-urban2.jpg", "sh-urban3.jpg", "sh-urban4.jpg"],
+      desc: "This exhibition hall offers a fascinating look at Shanghai’s urban development. Its highlight is a massive scale model of the city, providing insight into how Shanghai has evolved into one of the world’s leading megacities."
     }
   ];
 
@@ -166,7 +333,7 @@ map.fitBounds(bounds);
     document.querySelector('.arrow.right').style.display = showArrows ? 'block' : 'none';
 
     document.getElementById('modalTitle').textContent = item.title;
-    document.getElementById('modalDesc').textContent = item.desc;
+    document.getElementById('modalDesc').innerHTML = item.desc.replace(/\\n/g, '<br>');
 
     updateImage();
     document.getElementById('modalOverlay').style.display = 'flex';
