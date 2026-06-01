@@ -40,6 +40,7 @@
     font-size: 18px;
     font-weight: bold;
     border-bottom: 1px solid #ddd;
+    font-family: Verdana, sans-serif;
   }
 
   .modal-body {
@@ -85,7 +86,7 @@
     margin-top: 10px;
     font-size: 14px;
     line-height: 1.4;
-
+    font-family: Verdana, sans-serif;
   }
 
   .close-btn {
@@ -326,8 +327,14 @@ map.fitBounds(bounds);
   let currentImages = [];
   let currentIndex = 0;
 
+  const customIcon = L.icon({
+    iconUrl: 'marker-red.png',
+    iconSize: [32, 32],
+    iconAnchor: [16, 32]
+  });
+
   markersData.forEach(item => {
-    const marker = L.marker(item.coords).addTo(map);
+    const marker = L.marker(item.coords, {icon: customIcon}).addTo(map);
     marker.on('click', () => openModal(item));
   });
 
